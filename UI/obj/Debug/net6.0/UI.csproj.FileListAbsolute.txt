@@ -1,0 +1,12 @@
+D:\Projects\learning\hseCS\module3\CHW_3_2\UI\bin\Debug\net6.0\UI.deps.json
+D:\Projects\learning\hseCS\module3\CHW_3_2\UI\bin\Debug\net6.0\UI.dll
+D:\Projects\learning\hseCS\module3\CHW_3_2\UI\bin\Debug\net6.0\UI.pdb
+D:\Projects\learning\hseCS\module3\CHW_3_2\UI\obj\Debug\net6.0\UI.csproj.AssemblyReference.cache
+D:\Projects\learning\hseCS\module3\CHW_3_2\UI\obj\Debug\net6.0\UI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\learning\hseCS\module3\CHW_3_2\UI\obj\Debug\net6.0\UI.AssemblyInfoInputs.cache
+D:\Projects\learning\hseCS\module3\CHW_3_2\UI\obj\Debug\net6.0\UI.AssemblyInfo.cs
+D:\Projects\learning\hseCS\module3\CHW_3_2\UI\obj\Debug\net6.0\UI.csproj.CoreCompileInputs.cache
+D:\Projects\learning\hseCS\module3\CHW_3_2\UI\obj\Debug\net6.0\UI.dll
+D:\Projects\learning\hseCS\module3\CHW_3_2\UI\obj\Debug\net6.0\refint\UI.dll
+D:\Projects\learning\hseCS\module3\CHW_3_2\UI\obj\Debug\net6.0\UI.pdb
+D:\Projects\learning\hseCS\module3\CHW_3_2\UI\obj\Debug\net6.0\ref\UI.dll
