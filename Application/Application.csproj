@@ -12,7 +12,11 @@
       <ProjectReference Include="..\Core\Core.csproj" />
       <ProjectReference Include="..\Lib\Lib.csproj" />
       <ProjectReference Include="..\UI\UI.csproj" />
+
+
+
     </ItemGroup>
+
 
 
 

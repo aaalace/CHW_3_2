@@ -1,7 +1,9 @@
 ﻿using Application.Controllers;
-using Application.Handlers;
+using Application.Handlers.CommonHandlers;
+using Application.Services;
 using Core.Enums;
 using Core.Exceptions;
+using Lib.Data;
 using UI;
 
 namespace Application;
@@ -12,23 +14,26 @@ public static class EntryPoint
     {
         try
         {
-            (bool state, string filePath) = (false, string.Empty);
-            while (!state)
-            {
-                (state, filePath) = FilePathHandler.Get();
-                ConsoleWrapper.WriteException(new FileDoNotExistsException());
-            }
+            FilePathService.Run();
             
-            Console.WriteLine(filePath);
-            // (Lib) FilePath.UpdateFilePath(filePath);
-
             while (true)
             {
-                var command = MenuCommandHandler.Handle();
-                // Console.WriteLine(command);
-                if (command == MenuCommand.Exit) break;
+                (bool menuState, var command) = (false, MenuCommand.FilePath);
+                while (!menuState)
+                {
+                    (menuState, command) = MenuCommandHandler.Handle();
+                    if (!menuState) ConsoleWrapper.WriteException(new WrongMenuCommandException());
+                }
                 
-                MachineController.Run(command);
+                if (command == MenuCommand.Exit)
+                {
+                    Storage.Reset();
+                    break;
+                }
+                
+                BaseController.Run(command);
+
+                Console.WriteLine(Storage.machineCollection);
             }
         }
         catch (Exception e)

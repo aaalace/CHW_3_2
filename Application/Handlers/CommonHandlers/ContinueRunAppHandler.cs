@@ -1,6 +1,6 @@
 ﻿using UI;
 
-namespace Application.Handlers;
+namespace Application.Handlers.CommonHandlers;
 
 public static class ContinueRunAppHandler
 {

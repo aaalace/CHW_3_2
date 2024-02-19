@@ -1,7 +1,6 @@
-﻿using Core.Exceptions;
-using UI;
+﻿using UI;
 
-namespace Application.Handlers;
+namespace Application.Handlers.FilePathHandlers;
 
 public static class FilePathHandler
 {

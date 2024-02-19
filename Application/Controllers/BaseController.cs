@@ -1,8 +1,9 @@
-﻿using Core.Enums;
+﻿using Application.Services;
+using Core.Enums;
 
 namespace Application.Controllers;
 
-public static class MachineController
+public static class BaseController
 {
     /// <summary>
     /// Runs a task from menu.
@@ -13,13 +14,13 @@ public static class MachineController
         switch (command)
         {
             case MenuCommand.FilePath:
-                // _service.ReadService();
+                FilePathService.Run();
                 break;
             case MenuCommand.SortCollection:
-                // _service.FilterService();
+                SortCollectionService.Run();
                 break;
             case MenuCommand.EditEntity:
-                // _service.SortService();
+                EditEntityService.Run();
                 break;
             case MenuCommand.Exit:
             default:
