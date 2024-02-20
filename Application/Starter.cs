@@ -8,7 +8,7 @@ public static class Starter
 {
     public static void Main()
     {
-        ConsoleWrapper.WriteLine(Messages.start);
+        ConsoleWrapper.WriteLine(Messages.start, ConsoleColor.DarkYellow);
         do
         {
             EntryPoint.Run();

@@ -10,9 +10,15 @@ public static class ErrorMessages
     
     public const string wrongMachineField = "Wrong machine field";
     
-    public const string wrongRepairField = "Wrong machine field";
+    public const string wrongRepairField = "Wrong machine id";
     
     public const string wrongEntityToWorkWith = "Wrong entity";
     
-    public const string wrongMachineId = "Wrong machine id";
+    public const string wrongMachineId = "Wrong machine identifier";
+    
+    public const string wrongOption = "Wrong option";
+    
+    public const string wrongRepairId = "Wrong repair id";
+    
+    public const string wrongTypeException = "Wrong type";
 }

@@ -5,20 +5,19 @@ namespace Application.Handlers.CollectionBasedHandlers;
 
 public static class MachineFieldHandler
 {
-    public static (bool, MachineField) Get()
+    public static (bool, MachineField) Get(bool withId)
     {
         ConsoleWrapper.WriteLine("Choose machine field:");
-        ConsoleWrapper.WriteLine("id | brand | model | year | price | isReady");
-        
-        // TODO: ЕСЛИ ЭТО EDIT ТО ID НАДО УБРАТЬ
+        string idOption = withId ? "id | " : string.Empty;
+        ConsoleWrapper.WriteLine($"{idOption}brand | model | year | price | isReady");
         
         var s = ConsoleWrapper.ReadLine();
         if (s is null) throw new ArgumentNullException();
         
-        (bool state, var field) = (false, MachineField.MachineId);
+        (bool state, var field) = (false, MachineField.Brand);
         (state, field) = s switch
         {
-            "id" => (true, MachineField.MachineId),
+            "id" => withId ? (true, MachineField.MachineId) : (state, field),
             "brand" => (true, MachineField.Brand),
             "model" => (true, MachineField.Model),
             "year" => (true, MachineField.Year),

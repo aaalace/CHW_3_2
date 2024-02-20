@@ -1,34 +1,10 @@
-﻿using System.Reflection;
-using Core.Enums;
+﻿using Core.Enums;
 using Core.Enums.EntityEnums;
-using Lib.Data.SubSections;
-using Lib.Entities;
-using Lib.JsonWorker.SourceInteractors;
-using Lib.JsonWorker.Converters;
 
 namespace Lib.Data;
 
 public partial class Storage
 {
-    public static void Reset()
-    {
-        filePath.UpdatePath(string.Empty);
-        machineCollection.UpdateCollection(new List<Machine>());
-    }
-    
-    public static void UpdateFilePath(string path)
-    {
-        filePath.UpdatePath(path);
-        UpdateMachineCollection();
-    }
-    
-    private static void UpdateMachineCollection()
-    {
-        var json = Reader.Read(filePath.Value);
-        var collection = Deserializer.Deserialize(json);
-        machineCollection.UpdateCollection(collection);
-    }
-    
     public static void SortMachineCollection(MachineField field, SortOrder order)
     {
         var sortedCollection = field switch
@@ -50,7 +26,6 @@ public partial class Storage
     public static void SortRepairsInMachine(int machineId, RepairField field, SortOrder order)
     {
         var machine = machineCollection.Value.FirstOrDefault(x => x.MachineId == machineId);
-        
         if (machine is null) return;
         
         var sortedRepairsCollection = field switch
@@ -63,7 +38,6 @@ public partial class Storage
             RepairField.IsFixed => machine.Repairs.OrderBy(x => x.IsFixed).ToList(),
             _ => machine.Repairs
         };
-        
         if (order == SortOrder.Decrease) sortedRepairsCollection.Reverse();
 
         machine.Repairs = sortedRepairsCollection;

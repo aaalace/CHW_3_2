@@ -1,10 +1,6 @@
-﻿using Application.Handlers.CollectionBasedHandlers;
-using Application.Handlers.CollectionBasedHandlers.SortCollectionHandlers;
-using Core.Enums;
+﻿using Application.Helpers;
 using Core.Enums.EntityEnums;
-using Core.Exceptions;
 using Lib.Data;
-using UI;
 
 namespace Application.Services;
 
@@ -12,81 +8,31 @@ public static class SortCollectionService
 {
     public static void Run()
     {
-        var entity = GetEntityToWorkWith();
+        var entity = ServicesHelper.GetEntityToWorkWith();
         
         switch (entity)
         {
             case EntityToWorkWith.Machine:
-                var machineField = GetMachineField();
-                var orderMachine = GetSortOrder();
-                Storage.SortMachineCollection(machineField, orderMachine);
+                MachineSortProcess();
                 break;
             case EntityToWorkWith.Repair:
-                int machineId = GetMachineId();
-                var repairField = GetRepairField();
-                var orderRepair = GetSortOrder();
-                Storage.SortRepairsInMachine(machineId, repairField, orderRepair);
+                RepairsSortProcess();
                 break;
         }
     }
 
-    private static EntityToWorkWith GetEntityToWorkWith()
+    private static void MachineSortProcess()
     {
-        (bool stateEntityChoice, var entity) = (false, EntityToWorkWith.Machine);
-        while (!stateEntityChoice)
-        {
-            (stateEntityChoice, entity) = EntityToWorkWithHandler.Get();
-            if (!stateEntityChoice) ConsoleWrapper.WriteException(new WrongEntityToWorkWithException());
-        }
-
-        return entity;
+        var machineField = ServicesHelper.GetMachineField(withId: true);
+        var orderMachine = ServicesHelper.GetSortOrder();
+        Storage.SortMachineCollection(machineField, orderMachine);
     }
     
-    private static MachineField GetMachineField()
+    private static void RepairsSortProcess()
     {
-        (bool stateMachineField, var machineField) = (false, MachineField.MachineId);
-        while (!stateMachineField)
-        {
-            (stateMachineField, machineField) = MachineFieldHandler.Get();
-            if (!stateMachineField) ConsoleWrapper.WriteException(new WrongMachineFieldException());
-        }
-
-        return machineField;
-    }
-    
-    private static RepairField GetRepairField()
-    {
-        (bool stateRepairField, var repairField) = (false, RepairField.RepairId);
-        while (!stateRepairField)
-        {
-            (stateRepairField, repairField) = RepairFieldHandler.Get();
-            if (!stateRepairField) ConsoleWrapper.WriteException(new WrongRepairFieldException());
-        }
-
-        return repairField;
-    }
-    
-    private static SortOrder GetSortOrder()
-    {
-        (bool stateOrder, var order) = (false, SortOrder.Increase);
-        while (!stateOrder)
-        {
-            (stateOrder, order) = SortOrderHandler.Get();
-            if (!stateOrder) ConsoleWrapper.WriteException(new WrongSortOrderException());
-        }
-
-        return order;
-    }
-    
-    private static int GetMachineId()
-    {
-        (bool stateId, int id) = (false, 1);
-        while (!stateId)
-        {
-            (stateId, id) = MachineIdHandler.Get();
-            if (!stateId) ConsoleWrapper.WriteException(new WrongMachineId());
-        }
-
-        return id;
+        int machineId = ServicesHelper.GetMachineId();
+        var repairField = ServicesHelper.GetRepairField(withId: true);
+        var orderRepair = ServicesHelper.GetSortOrder();
+        Storage.SortRepairsInMachine(machineId, repairField, orderRepair);
     }
 }

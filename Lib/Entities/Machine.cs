@@ -2,32 +2,32 @@
 
 namespace Lib.Entities;
 
-public class Machine
+public partial class Machine
 {
     [JsonPropertyName("machine_id")]
-    public int MachineId { get; set; }
+    public int MachineId { get; }
 
     [JsonPropertyName("brand")]
-    public string Brand { get; set; }
+    public string Brand { get; private set; }
 
     [JsonPropertyName("model")]
-    public string Model { get; set; }
+    public string Model { get; private set; }
 
     [JsonPropertyName("year")]
-    public int Year { get; set; }
+    public int Year { get; private set; }
 
     [JsonPropertyName("price")]
-    public decimal Price { get; set; }
+    public double Price { get; private set; }
 
     [JsonPropertyName("is_ready")]
-    public bool IsReady { get; set; }
+    public bool IsReady { get; private set; }
 
     [JsonPropertyName("repairs")]
     public List<Repair> Repairs { get; set; }
     
     [JsonConstructor]
     public Machine(int machineId, string brand, string model,
-        int year, decimal price, bool isReady,
+        int year, double price, bool isReady,
         List<Repair> repairs)
     {
         MachineId = machineId;
@@ -37,10 +37,5 @@ public class Machine
         Price = price;
         IsReady = isReady;
         Repairs = repairs;
-    }
-    
-    public string ToJSON()
-    {
-        return string.Empty;
     }
 }

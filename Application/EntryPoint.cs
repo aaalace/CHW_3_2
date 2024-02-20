@@ -1,8 +1,6 @@
 ﻿using Application.Controllers;
-using Application.Handlers.CommonHandlers;
 using Application.Services;
 using Core.Enums;
-using Core.Exceptions;
 using Lib.Data;
 using UI;
 
@@ -18,13 +16,8 @@ public static class EntryPoint
             
             while (true)
             {
-                (bool menuState, var command) = (false, MenuCommand.FilePath);
-                while (!menuState)
-                {
-                    (menuState, command) = MenuCommandHandler.Handle();
-                    if (!menuState) ConsoleWrapper.WriteException(new WrongMenuCommandException());
-                }
-                
+                var command = MenuService.Run();
+
                 if (command == MenuCommand.Exit)
                 {
                     Storage.Reset();
@@ -32,8 +25,6 @@ public static class EntryPoint
                 }
                 
                 BaseController.Run(command);
-
-                Console.WriteLine(Storage.machineCollection);
             }
         }
         catch (Exception e)

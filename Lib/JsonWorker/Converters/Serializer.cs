@@ -1,6 +1,10 @@
-﻿namespace Lib.JsonWorker.Converters;
+﻿using System.Text.Json;
+using Machine = Lib.Entities.Machine;
 
-public class Serializer
+namespace Lib.JsonWorker.Converters;
+
+public static class Serializer
 {
-    
+    public static string Serialize(List<Machine> collection) 
+        => JsonSerializer.Serialize(collection);
 }

@@ -2,10 +2,5 @@
 
 public static class Reader
 {
-    public static string Read(string path)
-    {
-        string json = File.ReadAllText(path);
-
-        return json;
-    }
+    public static string Read(string path) => File.ReadAllText(path);
 }

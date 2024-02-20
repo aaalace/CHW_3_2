@@ -2,7 +2,7 @@
 
 namespace Lib.Entities;
 
-public class Repair
+public partial class Repair
 {
     [JsonPropertyName("repair_id")]
     public string RepairId { get; set; }
@@ -11,7 +11,7 @@ public class Repair
     public string Issue { get; set; }
 
     [JsonPropertyName("repair_cost")]
-    public decimal RepairCost { get; set; }
+    public double RepairCost { get; set; }
 
     [JsonPropertyName("technician")]
     public string Technician { get; set; }
@@ -24,7 +24,7 @@ public class Repair
     
     [JsonConstructor]
     public Repair(string repairId, string issue,
-        decimal repairCost, string technician,
+        double repairCost, string technician,
         bool isFixed, DateTime repairDate)
     {
         RepairId = repairId;
@@ -33,10 +33,5 @@ public class Repair
         Technician = technician;
         IsFixed = isFixed;
         RepairDate = repairDate;
-    }
-    
-    public string ToJSON()
-    {
-        return string.Empty;
     }
 }
