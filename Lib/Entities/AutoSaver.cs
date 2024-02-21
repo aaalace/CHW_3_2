@@ -30,5 +30,5 @@ public class AutoSaver
     }
 
     private bool CheckTimeState(DateTime newUpdate)
-        => newUpdate.Subtract(lastUpdate) is { Days: 0, Hours: 0, Minutes: 0, Seconds: <= 30 };
+        => newUpdate.Subtract(lastUpdate) is { Days: 0, Hours: 0, Minutes: 0, Seconds: <= 15 };
 }
