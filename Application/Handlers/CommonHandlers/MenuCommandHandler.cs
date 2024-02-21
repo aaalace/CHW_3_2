@@ -11,7 +11,7 @@ public static class MenuCommandHandler
     public static (bool, MenuCommand) Handle()
     {
         ConsoleWrapper.WriteLine("Choose menu option:");
-        ConsoleWrapper.WriteLine("path | sort | edit | exit");
+        ConsoleWrapper.WriteLine("show | path | sort | edit | exit");
         
         var s = ConsoleWrapper.ReadLine();
         if (s is null) throw new ArgumentNullException();
@@ -19,6 +19,7 @@ public static class MenuCommandHandler
         (bool state, var command) = (false, MenuCommand.FilePath);
         (state, command) = s switch
         {
+            "show" => (true, MenuCommand.Show),
             "path" => (true, MenuCommand.FilePath),
             "sort" => (true, MenuCommand.SortCollection),
             "edit" => (true, MenuCommand.EditEntity),

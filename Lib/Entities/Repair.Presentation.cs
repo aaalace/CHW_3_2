@@ -1,9 +1,8 @@
-﻿namespace Lib.Entities;
+﻿using Lib.JsonWorker.Converters;
+
+namespace Lib.Entities;
 
 public partial class Repair
 {
-    public string ToJson()
-    {
-        return string.Empty;
-    }
+    public string ToJson() => Serializer.Serialize(this);
 }

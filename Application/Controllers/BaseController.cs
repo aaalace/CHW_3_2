@@ -13,6 +13,9 @@ public static class BaseController
     {
         switch (command)
         {
+            case MenuCommand.Show:
+                ShowService.Run();
+                break;
             case MenuCommand.FilePath:
                 FilePathService.Run();
                 break;

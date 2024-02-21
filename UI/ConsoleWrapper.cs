@@ -2,7 +2,7 @@
 
 public static class ConsoleWrapper
 {
-    private static void Write(string s, ConsoleColor color = ConsoleColor.White)
+    public static void Write(string s, ConsoleColor color = ConsoleColor.White)
     {
         Console.ForegroundColor = color;
         Console.Write(s);

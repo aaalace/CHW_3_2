@@ -17,7 +17,7 @@ public partial class Storage
             MachineField.Year => machineCollection.Value.OrderBy(x => x.Year).ToList(),
             _ => machineCollection.Value
         };
-
+        
         if (order == SortOrder.Decrease) sortedCollection.Reverse();
 
         machineCollection.UpdateCollection(sortedCollection);
@@ -38,6 +38,7 @@ public partial class Storage
             RepairField.IsFixed => machine.Repairs.OrderBy(x => x.IsFixed).ToList(),
             _ => machine.Repairs
         };
+        
         if (order == SortOrder.Decrease) sortedRepairsCollection.Reverse();
 
         machine.Repairs = sortedRepairsCollection;

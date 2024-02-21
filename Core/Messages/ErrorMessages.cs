@@ -21,4 +21,6 @@ public static class ErrorMessages
     public const string wrongRepairId = "Wrong repair id";
     
     public const string wrongTypeException = "Wrong type";
+    
+    public const string wrongIds = "Wrong ids format";
 }

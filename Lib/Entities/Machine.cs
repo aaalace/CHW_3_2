@@ -20,7 +20,7 @@ public partial class Machine
     public double Price { get; private set; }
 
     [JsonPropertyName("is_ready")]
-    public bool IsReady { get; private set; }
+    public bool IsReady { get; set; }
 
     [JsonPropertyName("repairs")]
     public List<Repair> Repairs { get; set; }

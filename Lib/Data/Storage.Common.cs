@@ -24,8 +24,13 @@ public partial class Storage
         var collection = Deserializer.Deserialize(json);
 
         var autoSaver = new AutoSaver();
+        var repairManager = new RepairManager();
 
-        foreach (var machine in collection) machine.Updated += autoSaver.OnUpdatedHandler;
+        foreach (var machine in collection)
+        {
+            machine.Updated += autoSaver.OnUpdatedHandler;
+            machine.RepairChanged += repairManager.OnRepairChangedHandler;
+        }
         
         machineCollection.UpdateCollection(collection);
     }

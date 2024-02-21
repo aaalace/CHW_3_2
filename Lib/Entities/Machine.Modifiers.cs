@@ -7,9 +7,13 @@ namespace Lib.Entities;
 public partial class Machine
 {
     public event EventHandler<UpdateEventArgs> Updated;
+    public event EventHandler<RepairChangedEventArgs> RepairChanged;
     
     private void OnUpdated(object? sender, UpdateEventArgs args)
         => Updated.Invoke(sender, args);
+    
+    private void OnRepairChanged(object? sender, RepairChangedEventArgs args)
+        => RepairChanged.Invoke(sender, args);
     
     public void EditMachine<TField>(TField updField, MachineField fieldToEdit)
     {
@@ -47,6 +51,7 @@ public partial class Machine
         Repairs.Add(repair);
         
         OnUpdated(this, new UpdateEventArgs(DateTime.Now));
+        OnRepairChanged(this, new RepairChangedEventArgs(this));
     }
 
     public void EditRepair<TField>(TField updField, string repairId, RepairField fieldToEdit)
@@ -74,5 +79,6 @@ public partial class Machine
         }
         
         OnUpdated(this, new UpdateEventArgs(DateTime.Now));
+        OnRepairChanged(this, new RepairChangedEventArgs(this));
     }
 }
