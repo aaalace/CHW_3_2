@@ -29,8 +29,8 @@ public class AutoSaver
         lastUpdate = args.UpdateDT;
     }
 
-    // тестил на 30 секундах
-    private const int interval = 30;
+    // its better to test on 30 seconds interval
+    private const int INTERVAL = 15;
     private bool CheckTimeState(DateTime newUpdate)
-        => newUpdate.Subtract(lastUpdate) is { Days: 0, Hours: 0, Minutes: 0, Seconds: <= interval };
+        => newUpdate.Subtract(lastUpdate) is { Days: 0, Hours: 0, Minutes: 0, Seconds: <= INTERVAL };
 }

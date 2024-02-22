@@ -12,8 +12,9 @@ public class RepairManager
         
         int machineId = args.Machine.MachineId;
         var machine = Storage.machineCollection.Value.FirstOrDefault(x => x.MachineId == machineId);
-        if (machine != null) machine.IsReady = true;
-
+        if (machine == null) return;
+        
+        machine.IsReady = true;
         ConsoleWrapper.WriteLine($"Machine {machineId} is ready", ConsoleColor.DarkCyan);
     }
 }

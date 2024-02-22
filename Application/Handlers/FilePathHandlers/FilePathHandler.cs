@@ -13,6 +13,6 @@ public static class FilePathHandler
         ConsoleWrapper.WriteLine("Entry file path:");
         
         string? path = ConsoleWrapper.ReadLine();
-        return path is null ? (false, string.Empty) : (File.Exists(path), path);
+        return path == null ? (false, string.Empty) : (File.Exists(path), path);
     }
 }

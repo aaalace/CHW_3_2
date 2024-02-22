@@ -4,6 +4,8 @@ using UI;
 
 namespace Application;
 
+// Описание проекта в корневом каталоге - README.md
+
 public static class Starter
 {
     /// <summary>

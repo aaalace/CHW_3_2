@@ -35,7 +35,7 @@
   },
   {
     "machine_id": 2,
-    "brand": "gucci",
+    "brand": "234",
     "model": "Washer",
     "year": 2010,
     "price": 558.59,
@@ -48,14 +48,6 @@
         "technician": "Steven Oconnor",
         "is_fixed": false,
         "repair_date": "2023-02-05T00:00:00"
-      },
-      {
-        "repair_id": "R2-2",
-        "issue": "qwer",
-        "repair_cost": 123,
-        "technician": "qwe",
-        "is_fixed": true,
-        "repair_date": "2000-02-20T00:00:00"
       }
     ]
   },
