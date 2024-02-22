@@ -11,7 +11,7 @@ public static class EntityToWorkWithHandler
         ConsoleWrapper.WriteLine("machine | repair");
         
         var s = ConsoleWrapper.ReadLine();
-        if (s is null) throw new ArgumentNullException();
+        if (s is null) return (false, EntityToWorkWith.Machine);
         
         (bool state, var entity) = (false, EntityToWorkWith.Machine);
         (state, entity) = s switch

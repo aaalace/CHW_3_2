@@ -7,6 +7,9 @@ namespace Application.Services;
 
 public static class ShowService
 {
+    /// <summary>
+    /// Runs service for showing entities
+    /// </summary>
     public static void Run()
     {
         (bool state, var ids) = (false, new List<int>());

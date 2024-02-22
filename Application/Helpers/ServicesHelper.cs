@@ -11,6 +11,9 @@ namespace Application.Helpers;
 
 public static class ServicesHelper
 {
+    /// <summary>
+    /// Choice of Machine or Repair.
+    /// </summary>
     public static EntityToWorkWith GetEntityToWorkWith()
     {
         (bool stateEntityChoice, var entity) = (false, EntityToWorkWith.Machine);
@@ -23,6 +26,9 @@ public static class ServicesHelper
         return entity;
     }
     
+    /// <summary>
+    /// Choice of field of Machine.
+    /// </summary>
     public static MachineField GetMachineField(bool withId)
     {
         (bool stateMachineField, var machineField) = (false, MachineField.MachineId);
@@ -35,6 +41,9 @@ public static class ServicesHelper
         return machineField;
     }
     
+    /// <summary>
+    /// Choice of field of Repair.
+    /// </summary>
     public static RepairField GetRepairField(bool withId)
     {
         (bool stateRepairField, var repairField) = (false, RepairField.RepairId);
@@ -47,6 +56,9 @@ public static class ServicesHelper
         return repairField;
     }
     
+    /// <summary>
+    /// Choice of sort order.
+    /// </summary>
     public static SortOrder GetSortOrder()
     {
         (bool stateOrder, var order) = (false, SortOrder.Increase);
@@ -59,6 +71,9 @@ public static class ServicesHelper
         return order;
     }
     
+    /// <summary>
+    /// Choice of Machine id.
+    /// </summary>
     public static int GetMachineId()
     {
         (bool stateId, int id) = (false, 0);
@@ -71,6 +86,9 @@ public static class ServicesHelper
         return id;
     }
     
+    /// <summary>
+    /// Choice of Repair id.
+    /// </summary>
     public static string GetRepairId(int machineId)
     {
         (bool stateId, string id) = (false, string.Empty);
@@ -83,6 +101,9 @@ public static class ServicesHelper
         return id;
     }
 
+    /// <summary>
+    /// Choice for machine edit service process.
+    /// </summary>
     public static EditFieldOrAddRepair EditFieldOrAddRepair()
     {
         (bool stateId, var option) = (false, Core.Enums.EditFieldOrAddRepair.EditField);

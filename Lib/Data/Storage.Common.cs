@@ -6,18 +6,29 @@ namespace Lib.Data;
 
 public partial class Storage
 {
+    
+    /// <summary>
+    /// Reseting all items in Storage.
+    /// </summary>
     public static void Reset()
     {
         filePath.UpdatePath(string.Empty);
         machineCollection.UpdateCollection(new List<Machine>());
     }
     
+    /// <summary>
+    /// Init file path update.
+    /// </summary>
+    /// <param name="path">New path.</param>
     public static void UpdateFilePath(string path)
     {
         filePath.UpdatePath(path);
         UpdateMachineCollection();
     }
     
+    /// <summary>
+    /// Init update of collection of machines.
+    /// </summary>
     private static void UpdateMachineCollection()
     {
         var json = Reader.Read(filePath.Value);

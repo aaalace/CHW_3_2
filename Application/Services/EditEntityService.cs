@@ -7,6 +7,9 @@ namespace Application.Services;
 
 public static class EditEntityService
 {
+    /// <summary>
+    /// Runs service for editing entities.
+    /// </summary>
     public static void Run()
     {
         var entity = ServicesHelper.GetEntityToWorkWith();
@@ -57,11 +60,7 @@ public static class EditEntityService
                 int intValue = ServicesHelper.GetIntValue(machineField.ToString());
                 Storage.EditMachine(intValue, machineId, machineField);
                 break;
-            case MachineField.IsReady:
-                bool boolValue = ServicesHelper.GetBoolValue(machineField.ToString());
-                Storage.EditMachine(boolValue, machineId, machineField);
-                break;
-        }
+            }
     }
     
     private static void AddRepairProcess()

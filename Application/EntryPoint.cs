@@ -8,6 +8,9 @@ namespace Application;
 
 public static class EntryPoint
 {
+    /// <summary>
+    /// Working cycle with opened file.
+    /// </summary>
     public static void Run()
     {
         try

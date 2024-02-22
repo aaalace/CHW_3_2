@@ -9,7 +9,7 @@ public static class StringHandler
         ConsoleWrapper.WriteLine($"Entry {field} <string>:");
         
         string? s = ConsoleWrapper.ReadLine();
-        if (s is null) throw new ArgumentNullException();
+        if (s is null) return (false, string.Empty);
 
         return (true, s);
     }

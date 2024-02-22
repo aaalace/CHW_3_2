@@ -7,6 +7,9 @@ namespace Application.Services;
 
 public static class FilePathService
 {
+    /// <summary>
+    /// Runs service for editing file path.
+    /// </summary>
     public static void Run()
     {
         (bool state, string path) = (false, string.Empty);

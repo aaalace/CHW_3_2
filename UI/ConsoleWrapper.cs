@@ -1,5 +1,8 @@
 ﻿namespace UI;
 
+/// <summary>
+/// Wrapper of System.Console to avoid code repeat.
+/// </summary>
 public static class ConsoleWrapper
 {
     public static void Write(string s, ConsoleColor color = ConsoleColor.White)

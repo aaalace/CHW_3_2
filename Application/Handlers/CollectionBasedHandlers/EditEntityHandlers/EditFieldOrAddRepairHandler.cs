@@ -11,7 +11,7 @@ public static class EditFieldOrAddRepairHandler
         ConsoleWrapper.WriteLine("editField | addRepair");
         
         var s = ConsoleWrapper.ReadLine();
-        if (s is null) throw new ArgumentNullException();
+        if (s is null) return (false, EditFieldOrAddRepair.EditField);
         
         (bool state, var option) = (false, EditFieldOrAddRepair.EditField);
         (state, option) = s switch

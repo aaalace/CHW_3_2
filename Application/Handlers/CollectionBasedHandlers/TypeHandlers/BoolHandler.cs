@@ -9,7 +9,7 @@ public static class BoolHandler
         ConsoleWrapper.WriteLine($"Entry {field} <boolean>:");
         
         string? s = ConsoleWrapper.ReadLine();
-        if (s is null) throw new ArgumentNullException();
+        if (s is null) return (false, false);
 
         return (bool.TryParse(s, out bool boolean), boolean);
     }

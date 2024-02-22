@@ -14,7 +14,7 @@ public static class MenuCommandHandler
         ConsoleWrapper.WriteLine("show | path | sort | edit | exit");
         
         var s = ConsoleWrapper.ReadLine();
-        if (s is null) throw new ArgumentNullException();
+        if (s is null) return (false, MenuCommand.FilePath);
         
         (bool state, var command) = (false, MenuCommand.FilePath);
         (state, command) = s switch

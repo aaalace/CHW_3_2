@@ -6,6 +6,9 @@ namespace Application;
 
 public static class Starter
 {
+    /// <summary>
+    /// Program starter
+    /// </summary>
     public static void Main()
     {
         ConsoleWrapper.WriteLine(Messages.start, ConsoleColor.DarkYellow);

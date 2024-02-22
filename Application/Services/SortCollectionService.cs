@@ -6,6 +6,9 @@ namespace Application.Services;
 
 public static class SortCollectionService
 {
+    /// <summary>
+    /// Runs service for sorting entities.
+    /// </summary>
     public static void Run()
     {
         var entity = ServicesHelper.GetEntityToWorkWith();

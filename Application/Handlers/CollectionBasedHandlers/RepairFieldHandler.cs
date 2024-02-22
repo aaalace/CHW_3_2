@@ -12,7 +12,7 @@ public static class RepairFieldHandler
         ConsoleWrapper.WriteLine($"{idOption}issue | cost | technician | isFixed | repairDate");
         
         var s = ConsoleWrapper.ReadLine();
-        if (s is null) throw new ArgumentNullException();
+        if (s is null) return (false, RepairField.Issue);
         
         (bool state, var field) = (false, RepairField.Issue);
         (state, field) = s switch

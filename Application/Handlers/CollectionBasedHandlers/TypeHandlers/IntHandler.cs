@@ -9,8 +9,6 @@ public static class IntHandler
         ConsoleWrapper.WriteLine($"Entry {field} <integer>:");
         
         string? s = ConsoleWrapper.ReadLine();
-        if (s is null) throw new ArgumentNullException();
-
-        return (int.TryParse(s, out int integer), integer);
+        return s is null ? (false, 0) : (int.TryParse(s, out int integer), integer);
     }
 }

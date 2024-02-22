@@ -7,6 +7,9 @@ namespace Application.Services;
 
 public static class MenuService
 {
+    /// <summary>
+    /// Runs service for menu choosing.
+    /// </summary>
     public static MenuCommand Run()
     {
         (bool menuState, var command) = (false, MenuCommand.FilePath);

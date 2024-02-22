@@ -2,8 +2,16 @@
 
 namespace Lib.Utils;
 
+/// <summary>
+/// Generator of new id for added repair.
+/// </summary>
 public static class IdGenerator
 {
+    /// <summary>
+    /// Generates new id.
+    /// </summary>
+    /// <param name="machine">Machine where new repair added.</param>
+    /// <returns>New id.</returns>
     public static string GetId(Machine machine)
     {
         var currentRepairsIdCollection =

@@ -9,8 +9,6 @@ public static class DoubleHandler
         ConsoleWrapper.WriteLine($"Entry {field} <double>:");
         
         string? s = ConsoleWrapper.ReadLine();
-        if (s is null) throw new ArgumentNullException();
-
-        return (double.TryParse(s, out double dbl), dbl);
+        return s is null ? (false, 0) : (double.TryParse(s, out double dbl), dbl);
     }
 }

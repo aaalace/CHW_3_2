@@ -18,10 +18,10 @@ public static class ShowHandler
         ConsoleWrapper.Write("or (only one interval): ");
         ConsoleWrapper.Write("5-11\n", ConsoleColor.DarkCyan);
         
-        var s = ConsoleWrapper.ReadLine();
-        if (s is null) throw new ArgumentNullException();
-
         var ids = new List<int>();
+        
+        var s = ConsoleWrapper.ReadLine();
+        if (s is null) return (false, ids);
 
         foreach (var id in s.Split(", "))
         {

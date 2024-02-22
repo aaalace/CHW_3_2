@@ -5,7 +5,8 @@ namespace Application.Handlers.CommonHandlers;
 public static class ContinueRunAppHandler
 {
     /// <summary>
-    /// Checks if user wants to exit program.
+    /// Handles if user wants to leave program
     /// </summary>
+    /// <returns>User's choice</returns>
     public static bool Handle() => ConsoleWrapper.GetKey() != ConsoleKey.Q;
 }

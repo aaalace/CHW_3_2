@@ -16,10 +16,10 @@ public static class RepairIdHandler
             currentMachine.Repairs.Select(x => x.RepairId).ToList();
 
         ConsoleWrapper.WriteLine($"Choose repair id (from machine with {machineId} id):");
-        ConsoleWrapper.WriteLine(string.Join(" | ", currentRepairsIdCollection));
+        ConsoleWrapper.WriteLine(string.Join(" | ", currentRepairsIdCollection), ConsoleColor.DarkCyan);
 
         var s = ConsoleWrapper.ReadLine();
-        if (s is null) throw new ArgumentNullException();
+        if (s is null) return (false, string.Empty);
 
         return currentRepairsIdCollection.Contains(s) ? (true, s) : (false, s);
     }

@@ -6,14 +6,14 @@ namespace Lib.Entities;
 
 public partial class Machine
 {
-    public event EventHandler<UpdateEventArgs> Updated;
-    public event EventHandler<RepairChangedEventArgs> RepairChanged;
+    public event EventHandler<UpdateEventArgs>? Updated;
+    public event EventHandler<RepairChangedEventArgs>? RepairChanged;
     
     private void OnUpdated(object? sender, UpdateEventArgs args)
-        => Updated.Invoke(sender, args);
+        => Updated?.Invoke(sender, args);
     
     private void OnRepairChanged(object? sender, RepairChangedEventArgs args)
-        => RepairChanged.Invoke(sender, args);
+        => RepairChanged?.Invoke(sender, args);
     
     public void EditMachine<TField>(TField updField, MachineField fieldToEdit)
     {

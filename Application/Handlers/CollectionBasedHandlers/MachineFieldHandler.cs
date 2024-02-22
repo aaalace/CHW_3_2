@@ -12,7 +12,7 @@ public static class MachineFieldHandler
         ConsoleWrapper.WriteLine($"{idOption}brand | model | year | price | isReady");
         
         var s = ConsoleWrapper.ReadLine();
-        if (s is null) throw new ArgumentNullException();
+        if (s is null) return (false, MachineField.Brand);
         
         (bool state, var field) = (false, MachineField.Brand);
         (state, field) = s switch
@@ -22,7 +22,7 @@ public static class MachineFieldHandler
             "model" => (true, MachineField.Model),
             "year" => (true, MachineField.Year),
             "price" => (true, MachineField.Price),
-            "isReady" => (true, MachineField.IsReady),
+            "isReady" => withId ? (true, MachineField.IsReady) : (state, field),
             _ => (state, field)
         };
 

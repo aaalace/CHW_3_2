@@ -14,7 +14,7 @@ public static class SortOrderHandler
         ConsoleWrapper.WriteLine("increase | decrease");
         
         var s = ConsoleWrapper.ReadLine();
-        if (s is null) throw new ArgumentNullException();
+        if (s is null) return (false, SortOrder.Increase);
         
         (bool state, var order) = (false, SortOrder.Increase);
         (state, order) = s switch
