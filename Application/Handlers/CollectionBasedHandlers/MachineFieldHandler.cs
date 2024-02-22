@@ -9,7 +9,8 @@ public static class MachineFieldHandler
     {
         ConsoleWrapper.WriteLine("Choose machine field:");
         string idOption = withId ? "id | " : string.Empty;
-        ConsoleWrapper.WriteLine($"{idOption}brand | model | year | price | isReady");
+        string isReadyOption = withId ? " | isReady" : string.Empty;
+        ConsoleWrapper.WriteLine($"{idOption}brand | model | year | price{isReadyOption}");
         
         var s = ConsoleWrapper.ReadLine();
         if (s is null) return (false, MachineField.Brand);
